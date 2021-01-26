@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package protos;
+
+option go_package = "protos/server/theatre";
+
+service TheatreService {
+  rpc GetTheatreById(GetTheatreByIdRequest) returns (GetTheatreByIdResponse){}
+}
+
+message Theatre {
+  string id = 1;
+  string name = 2;
+  string address = 3;
+  Auditorium auditorium = 4;
+}
+
+message Auditorium {
+  string type = 1;
+  string idMovies = 2;
+  string schedule = 3;
+  repeated Seats seats = 4;
+}
+
+message Seats {
+  string seat = 2;
+  float cost = 3;
+  bool status = 4;
+}
+
+message GetTheatreByIdRequest {
+  string id = 1;
+}
+
+message GetTheatreByIdResponse {
+  Theatre theatre = 1;
+}
+

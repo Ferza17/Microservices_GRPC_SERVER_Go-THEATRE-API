@@ -1,0 +1,1 @@
+protoc protos/server/theatre/theatre.proto --go_out=plugins=grpc:.
